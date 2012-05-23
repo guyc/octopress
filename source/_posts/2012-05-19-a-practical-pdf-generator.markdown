@@ -3,7 +3,7 @@ layout: post
 title: "FOML: Format Object Markup Language"
 date: 2012-05-19 21:41
 comments: true
-categories: 
+categories: FOML, PHP
 ---
 
 In Search of a Practical PDF Framework
@@ -75,12 +75,13 @@ Here's the same thing expressed in FOML:
 
   %page-sequence(master-reference="my-page")
     %flow(flow-name="xsl-region-body")
-      %block Hello, world!
+      %block 
+        Hello, world!
 
 {% endcodeblock %}
 
 Unless you work in a Hello World factory (sweet job!) 
-in practice the layout-master-set block gets pretty complex, and 
+in practice the layout-master-set block gets more complex, and 
 is likely to be common to all of the documents in a project, so lets use
 an :include filter to pull in a shared layout-master-set partial.
 HAML doesn't have an include filter, FOML does.
@@ -92,7 +93,8 @@ HAML doesn't have an include filter, FOML does.
 
   %page-sequence(master-reference="my-page")
     %flow(flow-name="xsl-region-body")
-      %block Hello, world!
+      %block 
+        Hello, world!
 
 {% endcodeblock %}
 
@@ -150,13 +152,13 @@ Easy as, right?
 PHP Implementation
 ------------------
 
-Currently FOML is implemented as a PHP library, and
-requires Apache FOP, which in turn requires Java.
+A PHP library implementing FOML is [available on github](https://github.com/guyc/FOML).  The
+library requires Apache FOP, which in turn requires Java.
 It is complete enough to be useful, but is not feature-complete.
 The documentation describes the features that are implemented.
 
 Also note that the overhead of starting Java for Apache FOP is non-trivial.
-On my machines it is 3 or 4 seconds, so even a trivial PDF report takes
+On my machines it adds >2 seconds, so even a trivial PDF report takes
 that long to generate.  At some point I plan to try running FOP as a daemon
 to eliminate the startup latency, but for now expect XLS-FO to PDF translation
 to take a few seconds.
