@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "FOML: Format Object Markup Language"
+title: "FOML: Formatting Objects Markup Language"
 date: 2012-05-19 21:41
 comments: true
 categories: FOML, PHP
@@ -38,7 +38,7 @@ neatly [isolate](http://en.wikipedia.org/wiki/Separation_of_concerns) your layou
 logic from your application logic, and leaves your code and your breath minty fresh.
 So I really can't get all excited about writing PHP to spew forth well-formed XLS-FO.
 
-FOML - Formatting Object Markup Language
+FOML - Formatting Objects Markup Language
 ----
 
 {% pullquote %}
